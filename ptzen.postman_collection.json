@@ -1,0 +1,495 @@
+{
+	"info": {
+		"_postman_id": "fd6f3f30-6530-425a-8004-a7f20ec8ca1b",
+		"name": "ptzen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30519610"
+	},
+	"item": [
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/{{product-api}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{product-api}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/{{product-api}}/f526a83a-1b53-49e5-b6b6-652adaf54374",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{product-api}}",
+								"f526a83a-1b53-49e5-b6b6-652adaf54374"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"indomie aceh\",\n  \"harga\": 10000,\n  \"stock\": 1000\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{product-api}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{product-api}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"indomie rendang\",\n  \"harga\": 9000,\n  \"stock\": 900\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{product-api}}/319a36e4-525c-4c1b-8f69-c53a38c3aac1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{product-api}}",
+								"319a36e4-525c-4c1b-8f69-c53a38c3aac1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{product-api}}/delete/f526a83a-1b53-49e5-b6b6-652adaf54374",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{product-api}}",
+								"delete",
+								"f526a83a-1b53-49e5-b6b6-652adaf54374"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTEzNzA2NDksIm5hbWUiOiJSSURITyBNQVVMQU5BIiwic3ViIjoiYzg2ZjgxYzctMDE1MS00NzI3LTkwMzQtZDBlODMxMmUyNDM1In0.Q7SeMn9D_Rhv5CXmymyllkVQLj16tqcq62u5RhNFQhg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "PESANAN",
+			"item": [
+				{
+					"name": "INDEX",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/{{pesanan-api}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{pesanan-api}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIND",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/{{pesanan-api}}/bb260aa2-fc27-425c-a27d-068ba8ff6fc4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{pesanan-api}}",
+								"bb260aa2-fc27-425c-a27d-068ba8ff6fc4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_id\": \"b0d87312-8e7d-4879-b0d7-3f49f6780bb8\",\n  \"qty\": 10,\n  \"status\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{pesanan-api}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{pesanan-api}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTEzNzA2NDksIm5hbWUiOiJSSURITyBNQVVMQU5BIiwic3ViIjoiYzg2ZjgxYzctMDE1MS00NzI3LTkwMzQtZDBlODMxMmUyNDM1In0.Q7SeMn9D_Rhv5CXmymyllkVQLj16tqcq62u5RhNFQhg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "REGIST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstname\": \"IDO\",\n  \"lastname\": \"ANA\",\n  \"phone_number\": \"081212459697\",\n  \"email\": \"ridhomp@gmail.com\",\n  \"password\": \"securepassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{auth-api}}/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{auth-api}}",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RESET PASSWORD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTEzNTkxODQsInN1YiI6ImZhMTBiNTYzLWUyOTktNDJkOS1hNmYwLTEzMDdhYmEzOWVjMCJ9.Rubd295DXcK2X0upNfOQjsxBVWQVrJHvbPR5PudC50c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"password\": \"securepassword01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{auth-api}}/reset-password",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{auth-api}}",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"ridhompra@gmail.com\",\n  \"password\": \"securepassword\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{auth-api}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{auth-api}}",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTEzNTkxODQsInN1YiI6ImZhMTBiNTYzLWUyOTktNDJkOS1hNmYwLTEzMDdhYmEzOWVjMCJ9.Rubd295DXcK2X0upNfOQjsxBVWQVrJHvbPR5PudC50c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user1@example.com\",\n  \"password\": \"securepassword\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{auth-api}}/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{auth-api}}",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PROFILE",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTEzNjQ4NjgsIm5hbWUiOiJSSURITyBNQVVMQU5BIiwic3ViIjoiOWE2NWExMDQtOTVjNC00ZDQ4LWFiYmQtOGU5ZTFlZjlhZmJiIn0.QL140QoQ7otQzUwBmiQ-9P77na4fravfqeXjDamAgrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"securepassword\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/{{auth-api}}/profile",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"{{auth-api}}",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTA4Njk5MzQsInN1YiI6Ijg1ODM3NTZhLTljM2ItNGYyYy1hNTM5LTI3OTNiMjE2NTAyYiJ9.FD-cQNM7_i-6aLpM7q0kUK2rhZs5VlKqcO5FsCGUT5o",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "127.0.0.1:3000"
+		},
+		{
+			"key": "product-api",
+			"value": "api/product",
+			"type": "string"
+		},
+		{
+			"key": "pesanan-api",
+			"value": "api/pesanan",
+			"type": "string"
+		},
+		{
+			"key": "auth-api",
+			"value": "api/auth",
+			"type": "string"
+		}
+	]
+}
