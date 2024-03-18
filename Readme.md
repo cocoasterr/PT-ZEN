@@ -1,4 +1,4 @@
-# Go Kalbe Test
+# Go PT ZEN Test
 
 ## Setup your Database
 - insert .env following format .env copy
@@ -8,7 +8,7 @@ PG_DB_DSN = "postgres://<postgres>:<password>@<host>:<port>/"
 
 ## Init Your Go Module
 ```bash
-go mod init github.com/cocoasterr/kalbe_test
+go mod init github.com/cocoasterr/ptzen_test
 ```
 ## Download Module and create Go binary file
 ```bash
@@ -16,7 +16,7 @@ make build
 ```
 ## Docker Build
 ```bash
-docker build -t go_kalbe_test:tag .
+docker build -t go_ptzen_test:tag .
 ```
 Example like this:
  ```bash 
