@@ -2,7 +2,6 @@ package PGRepository
 
 import (
 	"database/sql"
-	"fmt"
 
 	"github.com/cocoasterr/kalbe_test/models"
 )
@@ -18,8 +17,4 @@ func NewPesananRepository(db *sql.DB) *PesananRepository {
 			Model: &models.Pesanan{},
 		},
 	}
-}
-
-func (mp *PesananRepository) CobaDulu() {
-	fmt.Println()
 }
