@@ -17,9 +17,6 @@ func main() {
 	if err != nil {
 		log.Fatal("Failed to Connect DB")
 	}
-	if err := PGConfig.CreateTable(db); err != nil {
-		log.Fatal("Failed to Create Table!")
-	}
 	app := fiber.New()
 
 	ProductRepo := PGRepository.NewProductRepository(db)

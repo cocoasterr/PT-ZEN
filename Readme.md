@@ -2,11 +2,37 @@
 technical test PT ZEN - Backend Engineer using Go
 
 ## SETUP PROJECT
-    - Build Script Dockerfile -> run : docker build --tag ptzen-app .
-    - Create Network -> run : docker network create ptzen-app-network
-    - Run Docker Container Golang -> run : docker run -d -p 8080:8080 --name ptzen-app --network ptzen-app-network ptzen-app
+- **Build Script Dockerfile**:
+    ```bash
+     docker build --tag ptzen-app .
+     ```
+- **Create Network**:
+    ``` bash
+    docker network create ptzen-app-network
+    ```
+- **Run Container**:
+    ```bash
+    Run Docker Container Golang -> run : docker run -d -p 8080:8080 --name ptzen-app --network ptzen-app-network ptzen-app
+    ```
+## CREATE TABLE DATABASE:
+- **Check PG Container id**:
+    ``` bash
+    docker ps
+    ```
+- **Exec PG Container**:
+    ``` bash
+    docker exec -it <pg_container_id> psql -U Postgres
+    ```
+- **Connect Database**:
+    ```bash
+    \c assesment_ptzen
+    ```
+- **Copy & Paste Query to Create Database**:
+    ```bash
+    querydb.sql
+    ```
 
-## soal
+## SOAL
     Deskripsi Proyek:
     Buatlah sebuah sistem manajemen toko online sederhana menggunakan Go atau nodeJS dengan Frontend ReractJS. Sistem ini harus memiliki 
 
