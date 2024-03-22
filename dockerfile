@@ -1,40 +1,43 @@
 ################
 # BUILD BINARY #
 ################
-# Gunakan golang:1.18.2-alpine3.16 sebagai base image
-FROM golang:1.18.2-alpine3.16 as builder
+# golang:1.18.2-alpine3.16
+FROM golang@sha256:5dbae0a41feefa0d9e0e455ddf82672bf439baac577650e6c6b81e98b6efe97a as builder
 
 # Install git + SSL ca certificates.
-# Git diperlukan untuk mengambil dependensi.
-# Ca-certificates diperlukan untuk melakukan panggilan HTTPS.
-RUN apk update && apk add --no-cache git ca-certificates
+# Git is required for fetching the dependencies.
+# Ca-certificates is required to call HTTPS endpoints.
+RUN apk update && apk add --no-cache git ca-certificates tzdata && update-ca-certificates
 
-# Set working directory
-WORKDIR /app
-
-# Salin file go.mod dan go.sum ke dalam container dan jalankan go mod download untuk mengambil dependensi.
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
-
-# Salin seluruh kode ke dalam container
+WORKDIR /ptzen
 COPY . .
 
-# Build aplikasi Go
-RUN go build -o /go/bin/ptzen app/main.go
+RUN echo $PWD && ls -la
 
+# Fetch dependencies.
+# RUN go get -d -v
+RUN go mod download
+RUN go mod verify
+
+#CMD go build -v
+# go build command with the -ldflags="-w -s" option to produce a smaller binary file by stripping debug information and symbol tables. 
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/ptzen .
 
 #####################
 # MAKE SMALL BINARY #
 #####################
-# Gunakan alpine:3.16 sebagai base image untuk membuat image yang lebih kecil
 FROM alpine:3.16
 
-# Salin binary dari builder stage
+RUN apk update
+
+# Import from builder.
+COPY --from=builder /usr/share/zoneinfo /usr/share/zoneinfo
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=builder /etc/passwd /etc/passwd
+COPY --from=builder /ptzen/.env .
+
+# Copy the executable.
 COPY --from=builder /go/bin/ptzen /go/bin/ptzen
+# COPY --from=builder /go/src/ptzen/config.json /go/bin/config.json
 
-# Atur working directory
-WORKDIR /go/bin
-
-# Jalankan aplikasi ketika container dimulai
-CMD ["/go/bin/ptzen"]
+ENTRYPOINT ["/go/bin/ptzen", "-conf", "/go/bin/config.json"]

@@ -1,2 +1,0 @@
-PG_DB_DSN = "postgres://postgres:password@127.0.0.1:5439/"
-JWT_SECRET = "ASD56S5D6sa5d76atd6a5das5d&%Sda55da5d75a7d57sad"

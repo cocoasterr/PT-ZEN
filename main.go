@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/cocoasterr/kalbe_test/app/controllers"
+	"github.com/cocoasterr/kalbe_test/controllers"
 	PGConfig "github.com/cocoasterr/kalbe_test/infra/db/postgres"
 	PGRepository "github.com/cocoasterr/kalbe_test/infra/db/postgres/repository/databasesql"
 	"github.com/cocoasterr/kalbe_test/middleware"
